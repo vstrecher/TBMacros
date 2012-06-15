@@ -95,9 +95,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define CENTER_HORIZONTALLY(parent,child) floor((parent.frame.size.width - child.frame.size.width) / 2)
 
 // example: [[UIView alloc] initWithFrame:(CGRect){CENTER_IN_PARENT(parentView,500,500),CGSizeMake(500,500)}];
-#define CENTER_IN_PARENT(parent,childWidth,childHeight) CGPointMake(floorf((parent.frame.size.width - childWidth) / 2),floorf((parent.frame.size.height - childHeight) / 2))
-#define CENTER_IN_PARENT_X(parent,childWidth) floorf((parent.frame.size.width - childWidth) / 2)
-#define CENTER_IN_PARENT_Y(parent,childHeight) floorf((parent.frame.size.height - childHeight) / 2)
+#define CENTER_IN_PARENT(parent,childWidth,childHeight) CGPointMake(floor((parent.frame.size.width - childWidth) / 2),floor((parent.frame.size.height - childHeight) / 2))
+#define CENTER_IN_PARENT_X(parent,childWidth) floor((parent.frame.size.width - childWidth) / 2)
+#define CENTER_IN_PARENT_Y(parent,childHeight) floor((parent.frame.size.height - childHeight) / 2)
 
 #define WIDTH(view) view.frame.size.width
 #define HEIGHT(view) view.frame.size.height
