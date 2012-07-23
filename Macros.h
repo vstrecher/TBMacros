@@ -99,6 +99,8 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define CENTER_IN_PARENT_X(parent,childWidth) floorf((parent.frame.size.width - childWidth) / 2)
 #define CENTER_IN_PARENT_Y(parent,childHeight) floorf((parent.frame.size.height - childHeight) / 2)
 
+#define CENTER_IN_PARENT_SIZE(parentSize, childWidth, childHeight) CGPointMake(floorf((parentSize.width - childWidth) / 2.0),floorf((parentSize.height - childHeight) / 2.0))
+
 #define WIDTH(view) view.frame.size.width
 #define HEIGHT(view) view.frame.size.height
 #define X(view) view.frame.origin.x
