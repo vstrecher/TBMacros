@@ -43,6 +43,11 @@ static inline NSString *StringFromObject(id object) {
 #define UIColorFromRGBA(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define UIColorFromRGB(r,g,b) UIColorFromRGBA(r,g,b,1.0)
 
+#define UIColorRed(color) CGColorGetComponents(color)[0]
+#define UIColorGreen(color) CGColorGetComponents(color)[1]
+#define UIColorBlue(color) CGColorGetComponents(color)[2]
+#define UIColorAlpha(color) (CGColorGetNumberOfComponents(color) == 4 ? CGColorGetComponents(color)[3] : 1.0)
+
 #pragma mark -
 #pragma mark Collections
 
