@@ -116,11 +116,11 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define BOTTOM(view) (view.frame.origin.y + view.frame.size.height) 
 #define RIGHT(view) (view.frame.origin.x + view.frame.size.width) 
 
-#define SET_FRAME_X(frame, x) (frame = CGRectMake(x, frame.origin.y, frame.size.width, frame.size.height));
-#define SET_FRAME_Y(frame, y) (frame = CGRectMake(frame.origin.x, y, frame.size.width, frame.size.height));
-#define SET_FRAME_WIDTH(frame, width) (frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height));
-#define SET_FRAME_HEIGHT(frame, height) (frame = CGRectMake(frame.origin.x, frae.origin.y, frame.size.width, height));
-#define INT_FRAME_ORIGIN(frame) (frame = CGRectMake((int)frame.origin.x, (int)frame.origin.y, frame.size.width, frame.size.height));
+#define SET_FRAME_X(frame, x) (frame = CGRectMake(x, frame.origin.y, frame.size.width, frame.size.height))
+#define SET_FRAME_Y(frame, y) (frame = CGRectMake(frame.origin.x, y, frame.size.width, frame.size.height))
+#define SET_FRAME_WIDTH(frame, width) (frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height))
+#define SET_FRAME_HEIGHT(frame, height) (frame = CGRectMake(frame.origin.x, frae.origin.y, frame.size.width, height))
+#define INT_FRAME_ORIGIN(frame) (frame = CGRectMake((int)frame.origin.x, (int)frame.origin.y, frame.size.width, frame.size.height))
 
 #pragma mark -
 #pragma mark IndexPath
