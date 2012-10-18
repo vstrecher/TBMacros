@@ -70,13 +70,13 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark -
 #pragma mark Logging
 
-#define LOG(fmt, ...) NSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
+#define LOG(fmt, ...) CLSNSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
 
 #ifdef DEBUG
     #define INFO(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 #else
     // do nothing
-    #define INFO(fmt, ...) 
+    #define INFO(fmt, ...)
 #endif
 
 #define ERROR(fmt, ...) LOG(fmt, ## __VA_ARGS__)
