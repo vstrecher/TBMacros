@@ -120,6 +120,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define SET_FRAME_Y(frame, y) (frame = CGRectMake(frame.origin.x, y, frame.size.width, frame.size.height))
 #define SET_FRAME_WIDTH(frame, width) (frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height))
 #define SET_FRAME_HEIGHT(frame, height) (frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, height))
+#define SET_FRAME_ORIGIN(frame, size) (frame = CGRectMake(origin.x, origin.y, frame.size.width, frame.size.height))
+#define SET_FRAME_SIZE(frame, size) (frame = CGRectMake(frame.origin.x, frame.origin.y, size.width, size.height))
+
 #define INT_FRAME_ORIGIN(frame) (frame = CGRectMake((int)frame.origin.x, (int)frame.origin.y, frame.size.width, frame.size.height))
 
 #pragma mark -
@@ -136,7 +139,15 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define TARGETED_DEVICE_IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define TARGETED_DEVICE_IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
+#define IS_IPAD TARGETED_DEVICE_IS_IPAD
+#define IS_IPHONE TARGETED_DEVICE_IS_IPHONE
+
 #pragma mark -
 #pragma mark Transforms
 
 #define DEGREES_TO_RADIANS(degrees) degrees * M_PI / 180
+
+#pragma mark -
+#pragma mark UILabel
+
+#define LABEL_SIZE(label) [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(WIDTH(label), CGFLOAT_MAX) lineBreakMode:label.lineBreakMode];
