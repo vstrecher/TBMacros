@@ -19,6 +19,8 @@ static inline NSString *StringFromObject(id object) {
 	}
 }
 
+static inline int signum(int n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
+
 #pragma mark -
 #pragma mark iOS Version
 
@@ -43,6 +45,7 @@ static inline NSString *StringFromObject(id object) {
 #define UIColorFromRGBA(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define UIColorFromRGB(r,g,b) UIColorFromRGBA(r,g,b,1.0)
 #define UIColorRandomColor [UIColor colorWithHue:( arc4random() % 256 / 256.0 ) saturation:( arc4random() % 128 / 256.0 ) + 0.5 brightness:( arc4random() % 128 / 256.0 ) + 0.5 alpha:( arc4random() % 256 / 256.0 ) + 0.1]
+#define UIColorRandomColorWithAlpha(a) [UIColor colorWithHue:( arc4random() % 256 / 256.0 ) saturation:( arc4random() % 128 / 256.0 ) + 0.5 brightness:( arc4random() % 128 / 256.0 ) + 0.5 alpha:a]
 
 #define UIColorRed(color) CGColorGetComponents(color)[0]
 #define UIColorGreen(color) CGColorGetComponents(color)[1]
