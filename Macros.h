@@ -83,6 +83,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define LOG(fmt, ...) NSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
 #define Log LOG
 
+#define DISPATCH_AFTER(timeInterval, block) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * NSEC_PER_SEC)), dispatch_get_current_queue(), block)
+#define DISPATCH_AFTER_ON_MAIN(timeInterval, block) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), block)
+
 #ifdef DEBUG
     #define INFO(fmt, ...) LOG(fmt, ## __VA_ARGS__)
 #else
