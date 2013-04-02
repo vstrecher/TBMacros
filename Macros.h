@@ -159,3 +159,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark UILabel
 
 #define LABEL_SIZE(label) [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(WIDTH(label), CGFLOAT_MAX) lineBreakMode:label.lineBreakMode];
+
+#pragma mark -
+#pragma mark Application
+
+#define STATUS_BAR_ORIENTATION [UIApplication sharedApplication].statusBarOrientation
+#define STATUS_BAR_FRAME [[UIApplication sharedApplication] statusBarFrame]
