@@ -153,7 +153,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark -
 #pragma mark Transforms
 
-#define DEGREES_TO_RADIANS(degrees) degrees * M_PI / 180
+#define DEGREES_TO_RADIANS(degrees) (degrees * M_PI / 180)
 
 #pragma mark -
 #pragma mark UILabel
