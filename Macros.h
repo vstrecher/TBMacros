@@ -128,7 +128,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define SET_FRAME_Y(frame, y) (frame = CGRectMake(frame.origin.x, y, frame.size.width, frame.size.height))
 #define SET_FRAME_WIDTH(frame, width) (frame = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height))
 #define SET_FRAME_HEIGHT(frame, height) (frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, height))
-#define SET_FRAME_ORIGIN(frame, size) (frame = CGRectMake(origin.x, origin.y, frame.size.width, frame.size.height))
+#define SET_FRAME_ORIGIN(frame, origin) (frame = CGRectMake(origin.x, origin.y, frame.size.width, frame.size.height))
 #define SET_FRAME_SIZE(frame, size) (frame = CGRectMake(frame.origin.x, frame.origin.y, size.width, size.height))
 
 #define INT_FRAME_ORIGIN(frame) (frame = CGRectMake((int)frame.origin.x, (int)frame.origin.y, frame.size.width, frame.size.height))
