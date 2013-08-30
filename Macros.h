@@ -115,14 +115,14 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define CENTER_IN_PARENT_SIZE(parentSize, childWidth, childHeight) CGPointMake(floorf((parentSize.width - childWidth) / 2.0),floorf((parentSize.height - childHeight) / 2.0))
 
-#define WIDTH(view) view.frame.size.width
-#define HEIGHT(view) view.frame.size.height
-#define X(view) view.frame.origin.x
-#define Y(view) view.frame.origin.y
-#define LEFT(view) view.frame.origin.x
-#define TOP(view) view.frame.origin.y
-#define BOTTOM(view) (view.frame.origin.y + view.frame.size.height) 
-#define RIGHT(view) (view.frame.origin.x + view.frame.size.width) 
+#define WIDTH(view) ((view).frame.size.width)
+#define HEIGHT(view) ((view).frame.size.height)
+#define X(view) ((view).frame.origin.x)
+#define Y(view) ((view).frame.origin.y)
+#define LEFT(view) ((view).frame.origin.x)
+#define TOP(view) ((view).frame.origin.y)
+#define BOTTOM(view) ((view).frame.origin.y + (view).frame.size.height)
+#define RIGHT(view) ((view).frame.origin.x + (view).frame.size.width)
 
 #define SET_FRAME_X(frame, x) (frame = CGRectMake(x, frame.origin.y, frame.size.width, frame.size.height))
 #define SET_FRAME_Y(frame, y) (frame = CGRectMake(frame.origin.x, y, frame.size.width, frame.size.height))
