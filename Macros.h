@@ -30,6 +30,8 @@ static inline int signum(int n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
 #define IOS_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define IOS_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+#define IS_IOS_7 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+
 #pragma mark -
 #pragma mark Syntactic sugar
 
