@@ -38,6 +38,9 @@ static inline int signum(int n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
 #define NOT_ANIMATED NO
 #define ANIMATED YES
 
+#define NSNULL_TO_NIL(value) ((value) == (id)[NSNull null] ? nil : (value))
+#define NIL_TO_NSNULL(value) ((value) == nil ? [NSNull null] : (value))
+
 #pragma mark -
 #pragma mark UIColor
 
@@ -53,6 +56,12 @@ static inline int signum(int n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
 #define UIColorGreen(color) CGColorGetComponents(color)[1]
 #define UIColorBlue(color) CGColorGetComponents(color)[2]
 #define UIColorAlpha(color) (CGColorGetNumberOfComponents(color) == 4 ? CGColorGetComponents(color)[3] : 1.0)
+
+#define GET_R(color) ((color & 0x000000FF))
+#define GET_G(color) ((color & 0x0000FF00) >> 8)
+#define GET_B(color) ((color & 0x00FF0000) >> 16)
+#define GET_A(color) ((color & 0xFF000000) >> 24)
+#define COLOR_FROM_ARGB(a,r,g,b) ((a << 24) | r | (g << 8) | (b << 16))
 
 #pragma mark -
 #pragma mark Collections
@@ -84,6 +93,9 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 
 #define LOG(fmt, ...) NSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
 #define Log LOG
+
+#define CLIP(value, min, max) (value = value < min ? min : (value > max ? max : value));
+#define SIGN(value) (value >= 0 ? 1:-1)
 
 #define DISPATCH_AFTER(timeInterval, block) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * NSEC_PER_SEC)), dispatch_get_current_queue(), block)
 #define DISPATCH_AFTER_ON_MAIN(timeInterval, block) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), block)
