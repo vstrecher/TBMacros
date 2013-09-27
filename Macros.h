@@ -91,7 +91,12 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark -
 #pragma mark Logging
 
-#define LOG(fmt, ...) NSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
+#ifdef APPSTORE
+    #define LOG(fmt, ...) NSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
+#else
+    #define LOG(fmt, ...)
+#endif
+
 #define Log LOG
 
 #define CLIP(value, min, max) (value = value < min ? min : (value > max ? max : value));
