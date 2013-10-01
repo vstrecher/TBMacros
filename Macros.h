@@ -91,7 +91,7 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #pragma mark -
 #pragma mark Logging
 
-#ifdef APPSTORE
+#ifndef APPSTORE
     #define LOG(fmt, ...) NSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
 #else
     #define LOG(fmt, ...)
