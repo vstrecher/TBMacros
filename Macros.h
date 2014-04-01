@@ -101,6 +101,8 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define LOG(fmt, ...) NSLog(@"[%s:%d] " fmt, __func__, __LINE__,  ## __VA_ARGS__)
 #define Log LOG
 
+#define print(fmt, ...) printf("%s\n", [[NSString stringWithFormat:fmt, ## __VA_ARGS__] cStringUsingEncoding:[NSString defaultCStringEncoding]])
+
 #define CLIP(value, min, max) (value = value < min ? min : (value > max ? max : value));
 #define SIGN(value) (value >= 0 ? 1:-1)
 
