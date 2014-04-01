@@ -52,10 +52,17 @@ static inline int signum(int n) { return (n < 0) ? -1 : (n > 0) ? +1 : 0; }
 #define UIColorRandomColor [UIColor colorWithHue:( arc4random() % 256 / 256.0 ) saturation:( arc4random() % 128 / 256.0 ) + 0.5 brightness:( arc4random() % 128 / 256.0 ) + 0.5 alpha:( arc4random() % 256 / 256.0 ) + 0.1]
 #define UIColorRandomColorWithAlpha(a) [UIColor colorWithHue:( arc4random() % 256 / 256.0 ) saturation:( arc4random() % 128 / 256.0 ) + 0.5 brightness:( arc4random() % 128 / 256.0 ) + 0.5 alpha:a]
 
+#if __has_feature(objc_arc)
+#define UIColorRed(color) CGColorGetComponents((__bridge CGColorRef)color)[0]
+#define UIColorGreen(color) CGColorGetComponents((__bridge CGColorRef)color)[1]
+#define UIColorBlue(color) CGColorGetComponents((__bridge CGColorRef)color)[2]
+#define UIColorAlpha(color) (CGColorGetNumberOfComponents((__bridge CGColorRef)color) == 4 ? CGColorGetComponents((__bridge CGColorRef)color)[3] : 1.0)
+#else
 #define UIColorRed(color) CGColorGetComponents(color)[0]
 #define UIColorGreen(color) CGColorGetComponents(color)[1]
 #define UIColorBlue(color) CGColorGetComponents(color)[2]
 #define UIColorAlpha(color) (CGColorGetNumberOfComponents(color) == 4 ? CGColorGetComponents(color)[3] : 1.0)
+#endif
 
 #define GET_R(color) ((color & 0x000000FF))
 #define GET_G(color) ((color & 0x0000FF00) >> 8)
